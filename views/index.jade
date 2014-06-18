@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .row
+    .col-6.col-sm-6.col-lg-4
+      p
+        a.btn.btn-default.glyphicon.glyphicon-plus(href="/uploads", role="button")
+
+    each asset in assets
+      .col-6.col-sm-6.col-lg-4
+        h2= asset.title
+        p.img
+          img(src=asset.url)
+        p
+          a.btn.btn-default(href="#", role="button") View details &raquo;
+
