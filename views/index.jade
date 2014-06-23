@@ -6,11 +6,12 @@ block content
       p
         a.btn.btn-default.glyphicon.glyphicon-plus(href="/uploads", role="button")
 
-    each asset in assets
-      .asset.col-6.col-sm-6.col-lg-4
-        h2= asset.title
-        p.img
-          img(src=asset.url)
-        p
-          a.btn.btn-default(href="#", role="button") View details &raquo;
+    .assets
+      each asset in assets
+        .asset.col-6.col-sm-6.col-lg-4
+          h2.title= asset.title
+          p.img
+            img(src=asset.url)
+          p
+            a.details.btn.btn-default(href="#", role="button") View details &raquo;
 
