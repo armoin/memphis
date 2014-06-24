@@ -1,4 +1,5 @@
 var http = require('http');
+var request = require("request");
 
 var Asset = {
   fetchAll: function (cb) {
@@ -20,6 +21,12 @@ var Asset = {
         cb(JSON.parse(assets));
       });
     }).end();
+  },
+
+  create: function (asset, cb) {
+    asset.type = "Asset";
+
+    request({uri: "http://localhost:9393/assets", method: "POST", form: {asset: asset}}, cb);
   }
 };
 

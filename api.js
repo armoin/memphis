@@ -1,12 +1,18 @@
 var express      = require('express'),
     bodyParser   = require('body-parser'),
-    app          = express(),
+    nconf        = require('nconf'),
+    app          = express();
 
-    nano         = require('nano')('http://localhost:5984'),
-    db           = nano.db.use('memphis_test_api');
+var env = process.env.NODE_ENV || 'development';
+
+nconf.use('file', { file: './config.json' });
+nconf.load();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+
+var nano = require('nano')('http://localhost:5984'),
+    db   = nano.db.use(nconf.get('database:' + env));
 
 app.get('/assets', function (req, res, next) {
   db.list({include_docs: true}, function (err, body) {

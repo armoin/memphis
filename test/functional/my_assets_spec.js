@@ -42,7 +42,7 @@ describe('My Assets page', function () {
     });
 
     before(function (done) {
-      this.browser.visit('/', done);
+      this.browser.visit('/assets', done);
     });
 
     it("is successful", function () {

@@ -5,7 +5,10 @@ var api = require('../api');
 
 app.set('port', process.env.PORT || 3000);
 
-var apiServer = api.listen(9393, function() {
+api.set('port', process.env.PORT || 9393);
+api.set('database', process.env.DATABASE || 'memphis_spoof_api');
+
+var apiServer = api.listen(api.get('port'), function() {
   debug('API server listening on port ' + apiServer.address().port);
 });
 var server = app.listen(app.get('port'), function() {

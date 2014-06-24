@@ -21,7 +21,10 @@ app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/assets', routes);
+app.get('/', function (req, res, next) {
+  res.redirect('/assets');
+});
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
