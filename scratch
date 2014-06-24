@@ -1,0 +1,63 @@
+var assets = [
+  {
+    url:         "/images/st_giles.jpg",
+    title:       "Cathedral",
+    alt:         "St Giles Cathedral",
+    description: "St Giles is Edinburgh's Cathedral. Situated on the Royal Mile it is very much part of the tourist trail.",
+    file_type:   "img",
+    width:       "1880",
+    height:      "1254",
+    resolution:  "72",
+    device:      "iphone",
+    is_readable: "false"
+  },
+  {
+    url:         "/images/castle.jpg",
+    title:       "Castle",
+    alt:         "Edinburgh Castle",
+    description: "Edinburgh Castle is still in active use. Situated on the Royal Mile it is very much part of the tourist trail.",
+    file_type:   "img",
+    width:       "1000",
+    height:      "667",
+    resolution:  "72",
+    device:      "android",
+    is_readable: "false"
+  },
+  {
+    url:         "/images/meadows.jpg",
+    title:       "Arthur's Seat from the Meadows",
+    alt:         "Arthur's Seat",
+    description: "Arthur's Seat is the plug of a long extinct volcano.",
+    file_type:   "img",
+    width:       "1280",
+    height:      "878",
+    resolution:  "72",
+    device:      "iphone",
+    is_readable: "false"
+  },
+  {
+    url:         "/images/tattoo.jpg",
+    title:       "Tattoo",
+    alt:         "The Royal Military Tattoo",
+    description: "Every year Edinburgh Castle plays host to the Royal Military Tattoo.",
+    file_type:   "img",
+    width:       "1500",
+    height:      "1000",
+    resolution:  "72",
+    device:      "android",
+    is_readable: "false"
+  },
+  {
+    url:         "/images/palace.jpg",
+    title:       "Palace",
+    alt:         "Holyrood Palace",
+    description: "Holyrood Palace is the Queen's official residence in Edinburgh. Situated on the Royal Mile it is very much part of the tourist trail.",
+    file_type:   "img",
+    width:       "990",
+    height:      "556",
+    resolution:  "72",
+    device:      "android",
+    is_readable: "false"
+  }
+]
+
