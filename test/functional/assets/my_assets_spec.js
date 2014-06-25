@@ -1,33 +1,19 @@
 process.env.NODE_ENV = 'test';
 
-var app        = require('../../app'),
-    api        = require('../../api'),
-    DataHelper = require('../helpers/data_helper.js'),
-    http       = require('http'),
-    Browser    = require('zombie'),
+var DataHelper = require('../../helpers/data_helper.js'),
     expect     = require('chai').expect;
 
 describe('My Assets page', function () {
-  before(function () {
-    this.testAPI = http.createServer(api).listen(9393);
-    this.server  = http.createServer(app).listen(3001);
-    this.browser = new Browser({site: 'http://localhost:3001'});
-  });
+  describe('GET /assets', function () {
+    beforeEach(function (done) {
+      DataHelper.createDatabase(done);
+    });
 
-  before(function (done) {
-    DataHelper.createDatabase(done);
-  });
+    afterEach(function (done) {
+      DataHelper.dropDatabase(done);
+    });
 
-  after(function (done) {
-    DataHelper.dropDatabase(done);
-  });
-
-  after(function (done) {
-    this.server.close(done);
-  });
-
-  describe('GET list', function () {
-    before(function (done) {
+    beforeEach(function (done) {
       var browser = this.browser;
       DataHelper.addAssets([
         {
@@ -41,7 +27,7 @@ describe('My Assets page', function () {
       ], done);
     });
 
-    before(function (done) {
+    beforeEach(function (done) {
       this.browser.visit('/assets', done);
     });
 
@@ -72,6 +58,11 @@ describe('My Assets page', function () {
         var viewDetails = this.asset.querySelector('a.details');
         expect(viewDetails).not.to.be.null;
       });
+    });
+
+    it('links to the new asset page', function () {
+      this.browser.clickLink('.add-asset');
+      expect(this.browser.location.pathname).to.eql('/assets/new');
     });
   });
 });
