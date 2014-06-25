@@ -6,6 +6,7 @@ var express      = require('express'),
     bodyParser   = require('body-parser'),
 
     routes       = require('./routes/index'),
+    assets       = require('./routes/assets'),
 
     app          = express();
 
@@ -21,10 +22,8 @@ app.use(cookieParser());
 app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/assets', routes);
-app.get('/', function (req, res, next) {
-  res.redirect('/assets');
-});
+app.use('/', routes);
+app.use('/assets', assets);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

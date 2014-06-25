@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .row
+    .assets
+      each asset in assets
+        .asset.col-6.col-sm-6.col-lg-4
+          h2.title= asset.title
+          p.img
+            img(src=asset.url)
+          p
+            a.details.btn.btn-default(href="#", role="button") View details &raquo;
+
